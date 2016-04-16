@@ -1,5 +1,5 @@
 # Learning
-List something in learning JavaScript / HTML5 / CSS3.
+List something during learning JavaScript / HTML5 / CSS3.
 
 
 # Interview
