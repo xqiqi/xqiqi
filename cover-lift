@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		head,body{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* 页面logo图 */
+		#main{
+			position: relative;
+			width: 990px;
+			height: 200px;
+			border-radius: 5px;
+			border: 1px solid #e1e1e1;
+			margin: 30px;
+		}
+
+		/* 掀起一角的background */
+		#back{
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 10px;
+			border-color: #c7c7c7 #c7c7c7 transparent transparent;
+			top: 0;
+			right: 0;
+		}
+		/* 掀起一角的triangle */
+		#tri{
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-radius: 0 0 0 5px;
+			border-style: solid;
+			border-width: 10px;
+			border-color: transparent transparent #e1ca82 #e1ca82;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+		}
+
+		@keyframes transBig{
+		    0%   {border-width: 10px;}
+		    50%  {border-width: 55px;}
+		    100% {border-width: 100px;}
+		}
+		@keyframes transSmall{
+		    0%   {border-width: 100px;}
+		    50%  {border-width: 55px;}
+		    100% {border-width: 10px;}
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="back"></div>
+		<div id="tri"></div>
+	</div>
+
+	<script>
+		window.onload = function () {
+			var t = document.getElementById("tri");
+			var b = document.getElementById("back");
+
+			t.addEventListener("click", handleBig, false);
+
+			function handleBig (){
+				t.style.animation = "transBig 0.5s linear 0s 1 alternate";
+				b.style.animation = "transBig 0.5s linear 0s 1 alternate";
+
+				setTimeout(function(){
+					t.style.borderWidth = "100px";
+					b.style.borderWidth = "100px";
+					t.style.animation = null;
+					b.style.animation = null;
+
+					t.removeEventListener("click", handleBig, false);
+					t.addEventListener("click", handleSmall, false);
+				}, 500);
+			}
+
+			function handleSmall (){
+				t.style.animation = "transSmall 0.5s linear 0s 1 alternate";
+				b.style.animation = "transSmall 0.5s linear 0s 1 alternate";
+
+				setTimeout(function(){
+					t.style.borderWidth = "10px";
+					b.style.borderWidth = "10px";
+					t.style.animation = null;
+					b.style.animation = null;
+
+					t.removeEventListener("click", handleSmall, false);
+					t.addEventListener("click", handleBig, false);
+				}, 500);
+			}
+		};
+	</script>
+</body>
+</html>
