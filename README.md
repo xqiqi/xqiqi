@@ -8,8 +8,11 @@
 
 #Code
 * 【demo1】 cover-lift
+
 说明：div 掀起一角的动画效果，基于 CSS3 animation
+
 部分示例：
+
 ``` css
 #tri{
 	position: absolute;
