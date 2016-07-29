@@ -7,7 +7,7 @@
 
 
 #Code
-* demo1：cover-lift
+* demo1：cover-lift.html
 
     div 掀起一角的动画效果，基于 CSS3 animation
 
